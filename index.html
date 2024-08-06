@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewpoint" content="width=device-width, inital-scale=1.0">
+        <title>To Do App</title>
+        <style>
+            /* Add CCS here */
+        </style>
+    </head>
+</html>
+<body>
+    <button id="createListBtn">+ Create New List</button>
+    <div id="formContainer" style="display: none;">
+        <form id="taskForm">
+            <label for="listName">Name:</label>
+            <input type="text" id="listName" placeholder="Enter List name">
+            <br>
+            <label for="task1">Todo 1:</label>
+            <input type="text" id="task1" placeholder="Enter the first task">
+            <br>
+            <label for="task2">Todo 2:</label>
+            <input type="text" id="task2" placeholder="Enter third task">
+            <br>
+            <label for="task3">Todo 3:</label>
+            <input type="text" id="task3" placeholder="Enter thrid task">
+            <br>
+            <button type="submit">Save list</button>
+
+        </form>
+
+    </div>
+
+    <div id="listContainer"></div>
+
+    <script>
+        // Add JS
+        document.getElementById('createListBtn').addEventListener('click', function(){
+            document.getElementById('formContainer').style.display='block';
+        })
+
+        // Capture Form Data
+        document.getElementById('taskForm').addEventListener('submit',function(event){
+            event.preventDefault(); 
+
+            const listName = document.getElementById('listName').value;
+            const task1 = document.getElementById('task1').value;
+            const task2 = document.getElementById('task2').value;
+            const task3 = document.getElementById('task3').value;
+
+            // create a new list item
+
+            const listHtml = `
+                <h2>${listName}</h2>
+                <ul>
+                    <li>${task1}</li>
+                    <li>${task2}</li>
+                    <li>${task3}</li>
+                </ul>    
+            `;
+
+            document.getElementById('listContainer').innerHTML = listHtml;
+        });
+    </script>
+    
+    <h1>Welcome to My Web Page</h1>
+    <p>This is a simple example to show how HTML tags work.</p>
+
+</body>
+
